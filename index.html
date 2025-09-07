@@ -53,16 +53,7 @@
       <div class="span4">
         <h3>About Me</h3>
         <p>My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. It literally has 5 red lights and 1 Walmart. I was raised by my Grandparents on a private lake. After graduating from Mineola HS, I furthered my studies at Tyler Junior College, where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. I plan to use this website as my Blog and my portfolio.</p>
-        <style>
-  .double-space {
-    line-height: 2;
-  }
-</style>
-
-<p class="double-space">
-  This text is double spaced.<br>
-  Each line will have extra space beneath it.
-</p>
+        line-height: 2; /* double spacing */
       </div>
     </div>
   </div>
@@ -72,3 +63,107 @@
   </footer>
 </body>
 </html>
+/* 🌌 MySpace Retro Theme for Jett Vaughan Blog */
+
+/* Body */
+body {
+  background: #000 url('spacebg.gif') repeat center center fixed;
+  background-size: cover;
+  color: #00ffcc;
+  font-family: "Comic Sans MS", "Trebuchet MS", cursive;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+/* Navbar */
+.navbar-inner {
+  background: linear-gradient(90deg, #6600ff, #ff0066);
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 12px #ff00cc;
+}
+
+.navbar .brand {
+  color: #fff !important;
+  font-size: 1.5em;
+  text-shadow: 0 0 8px #ffccff;
+}
+
+.navbar .nav > li > a {
+  color: #ffccff !important;
+  font-weight: bold;
+  text-shadow: 0 0 4px #ff00ff;
+}
+
+.navbar .nav > .active > a {
+  background: #ff0066 !important;
+  color: #fff !important;
+}
+
+/* Content background */
+.content-bg {
+  background: rgba(0,0,0,0.8);
+  border: 3px dashed #ff00cc;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 3rem;
+  box-shadow: 0 0 24px #ff00cc;
+}
+
+/* Hero section */
+.hero-unit {
+  background: rgba(255, 0, 204, 0.2);
+  border: 2px solid #00ffff;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 15px;
+}
+
+/* Posts */
+.well {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px groove #00ffff;
+  color: #fff;
+  box-shadow: 0 0 12px #00ffff;
+}
+
+/* About Me double spacing */
+.about-me {
+  line-height: 2;
+}
+
+/* Links */
+a {
+  color: #ffcc00;
+  text-decoration: none;
+}
+a:hover {
+  color: #00ffcc;
+  text-shadow: 0 0 6px #00ffff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #ff99ff;
+  text-shadow: 0 0 6px #ff00ff;
+}
+
+/* ✨ Fun retro extras */
+marquee {
+  color: #ffff00;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-shadow: 0 0 6px #ff0000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ff00ff, #00ffff);
+  border-radius: 6px;
+}
+
