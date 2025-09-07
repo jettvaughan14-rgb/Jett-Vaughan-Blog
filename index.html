@@ -5,37 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jett Vaughan Blog</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background: #000 url('https://www.spacejam.com/1996/img/bg_stars.gif') repeat;
             color: #FFFFFF;
-            min-height: 100vh;
-            position: relative;
-            z-index: 1;
-        }
-        #stars-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            display: block;
-            pointer-events: none;
         }
         /* Navbar styles */
         .navbar {
-            background-color: #6A1B9A;
+            background-color: #6A1B9A; /* Primary color */
             padding: 10px;
             text-align: center;
-            position: relative;
-            z-index: 2;
         }
         .navbar a {
             color: white;
@@ -44,18 +25,14 @@
         }
         /* Hero section styles */
         .hero {
-            background-color: #6A1B9A;
+            background-color: #6A1B9A; /* Primary color */
             padding: 50px 20px;
             text-align: center;
             color: #FFFFFF;
-            position: relative;
-            z-index: 2;
         }
         /* Blog post section styles */
         .blog-posts {
             padding: 20px;
-            position: relative;
-            z-index: 2;
         }
         .post {
             background-color: rgba(106, 27, 154, 0.8);
@@ -65,20 +42,16 @@
         }
         /* Footer styles */
         footer {
-            background-color: #6A1B9A;
+            background-color: #6A1B9A; /* Primary color */
             padding: 10px;
             text-align: center;
             position: relative;
-            z-index: 2;
             bottom: 0;
             width: 100%;
         }
     </style>
 </head>
 <body>
-    <!-- Starfield Canvas Background -->
-    <canvas id="stars-bg"></canvas>
-
     <!-- Navbar -->
     <div class="navbar">
         <a href="#home">Home</a>
@@ -115,84 +88,5 @@
     <footer>
         <p>&copy; 2023 Jett Vaughan. All rights reserved.</p>
     </footer>
-    <script>
-    // Starfield Animation
-    const canvas = document.getElementById('stars-bg');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-    let STAR_COUNT = 150;
-    let w, h;
-
-    function resize() {
-        w = window.innerWidth;
-        h = window.innerHeight;
-        canvas.width = w;
-        canvas.height = h;
-    }
-
-    function initStars() {
-        stars = [];
-        for (let i = 0; i < STAR_COUNT; i++) {
-            stars.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                radius: Math.random() * 1.2 + 0.2,
-                speed: Math.random() * 0.5 + 0.05,
-                alpha: Math.random() * 0.8 + 0.2
-            });
-        }
-    }
-
-    function drawStars() {
-        ctx.clearRect(0, 0, w, h);
-
-        // Space gradient background
-        let gradient = ctx.createLinearGradient(0, 0, 0, h);
-        gradient.addColorStop(0, "#0a0033");
-        gradient.addColorStop(1, "#000010");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, w, h);
-
-        for (let star of stars) {
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, 2 * Math.PI, false);
-            ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
-            ctx.shadowColor = "#fff";
-            ctx.shadowBlur = 4;
-            ctx.fill();
-            ctx.closePath();
-            ctx.shadowBlur = 0;
-        }
-    }
-
-    function moveStars() {
-        for (let star of stars) {
-            star.y += star.speed;
-            if (star.y > h) {
-                star.x = Math.random() * w;
-                star.y = 0;
-                star.radius = Math.random() * 1.2 + 0.2;
-                star.speed = Math.random() * 0.5 + 0.05;
-                star.alpha = Math.random() * 0.8 + 0.2;
-            }
-        }
-    }
-
-    function animate() {
-        drawStars();
-        moveStars();
-        requestAnimationFrame(animate);
-    }
-
-    window.addEventListener('resize', () => {
-        resize();
-        initStars();
-    });
-
-    // Initialize and start animation
-    resize();
-    initStars();
-    animate();
-    </script>
 </body>
 </html>
