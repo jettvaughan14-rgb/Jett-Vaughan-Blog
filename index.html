@@ -1,92 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jett Vaughan Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #000 url('https://www.spacejam.com/1996/img/bg_stars.gif') repeat;
-            color: #FFFFFF;
-        }
-        /* Navbar styles */
-        .navbar {
-            background-color: #6A1B9A; /* Primary color */
-            padding: 10px;
-            text-align: center;
-        }
-        .navbar a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-        /* Hero section styles */
-        .hero {
-            background-color: #6A1B9A; /* Primary color */
-            padding: 50px 20px;
-            text-align: center;
-            color: #FFFFFF;
-        }
-        /* Blog post section styles */
-        .blog-posts {
-            padding: 20px;
-        }
-        .post {
-            background-color: rgba(106, 27, 154, 0.8);
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        /* Footer styles */
-        footer {
-            background-color: #6A1B9A; /* Primary color */
-            padding: 10px;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Jett Vaughan Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #000 url('spacebg.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .content-bg {
+      background: rgba(0,0,0,0.8);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 0 24px #000c;
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Jett Vaughan Blog</a>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
     </div>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Welcome to Jett Vaughan Blog</h1>
-        <p>Your source for the latest in retro and neon vibes!</p>
-        <img src="your-gif-url.gif" alt="Fun GIF" style="width: 300px; height: auto;">
+  </div>
+  <div class="container content-bg">
+    <div class="hero-unit">
+      <h1>Welcome to Space!</h1>
+      <p>This is your new retro-cosmic blog, styled with Bootstrap 2.3.1 and your custom background.</p>
     </div>
-
-    <!-- Blog Post Section -->
-    <div class="blog-posts">
-        <h2>Latest Blog Posts</h2>
-        <div class="post">
-            <h3>Blog Post Title 1</h3>
-            <p>This is an example of a blog post summary. You can expand on this topic in the full post.</p>
+    <div class="row">
+      <div class="span8">
+        <h2>Recent Posts</h2>
+        <div class="well">
+          <h3>🚀 First Cosmic Entry</h3>
+          <p>Bask in the glory of the cosmos and write about your adventures here!</p>
         </div>
-        <div class="post">
-            <h3>Blog Post Title 2</h3>
-            <p>This is another example of a blog post summary. Share your thoughts and insights here!</p>
+        <div class="well">
+          <h3>✨ Another Blog Post</h3>
+          <p>Your thoughts, code, or anything else can shine here under the stars.</p>
         </div>
-        <div class="post">
-            <h3>Blog Post Title 3</h3>
-            <p>This post discusses various topics that are interesting and engaging for the readers.</p>
-        </div>
+      </div>
+      <div class="span4">
+        <h3>About Me</h3>
+        <p>Jett Vaughan, cosmic blogger, explorer of retro web vibes and the infinite universe.</p>
+      </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Jett Vaughan. All rights reserved.</p>
-    </footer>
+  </div>
+  <footer class="container">
+    <hr>
+    <p>&copy; 2025 Jett Vaughan</p>
+  </footer>
 </body>
 </html>
