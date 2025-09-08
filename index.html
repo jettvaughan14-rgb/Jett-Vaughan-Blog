@@ -6,33 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
   <style>
+    /* ====== BACKGROUND ====== */
     body {
-      background-color: #064d1a; /* green fallback */
-      background-image: url('STARS-BG.gif');
+      background-color: #076B1D; /* Green retro background */
+      background-image: url('STARS-BG.gif'); /* Tiled star background */
       background-repeat: repeat;
       background-attachment: fixed;
-      color: #00ffcc;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-      text-shadow: 0 0 5px #00ffff;
+      color: white;
     }
 
-    .navbar {
-      background: white !important;
-      border-bottom: 3px solid #064d1a;
+    /* ====== RGB ANIMATION ====== */
+    @keyframes rgbText {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: magenta; }
     }
-    .navbar .brand,
-    .navbar .nav > li > a {
-      color: #064d1a !important;
-      font-weight: bold;
-      text-shadow: none;
-    }
-    .navbar .nav > .active > a {
-      background: #00ffcc !important;
-      color: black !important;
+    .rgb-text {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
     }
 
+    /* ====== CONTENT AREA ====== */
     .content-bg {
-      background: rgba(0,0,0,0.85);
+      background: rgba(0,0,0,0.8);
       border: 2px dashed #ff00cc;
       border-radius: 10px;
       padding: 2rem;
@@ -40,23 +39,35 @@
       box-shadow: 0 0 24px #ff00cc;
     }
 
-    .about-me {
-      line-height: 2; /* double spaced */
+    /* ====== NAVBAR ====== */
+    .navbar {
+      background: white !important;
+      border-bottom: 3px solid #076B1D;
+    }
+    .navbar .brand,
+    .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+      text-shadow: none !important;
+    }
+    .navbar .nav > li > a:hover {
+      color: #ff00cc !important;
     }
 
+    /* ====== MARQUEE ====== */
     marquee {
       background: rgba(0,0,0,0.8);
       padding: 8px;
-      border: 2px dashed #ff00cc;
       font-weight: bold;
       letter-spacing: 2px;
+      font-size: 1.5em;
     }
 
+    /* ====== FOOTER ====== */
     footer {
       text-align: center;
       margin-top: 2rem;
-      color: #ff99ff;
-      text-shadow: 0 0 6px #ff00ff;
+      color: #fff;
     }
     footer a {
       color: #ffcc00;
@@ -64,13 +75,12 @@
     }
     footer a:hover {
       color: #00ffcc;
-      text-shadow: 0 0 6px #00ffff;
     }
   </style>
 </head>
 <body>
-  <!-- Marquee -->
-  <marquee behavior="scroll" direction="left" scrollamount="6" style="color:yellow; font-size:1.5em; text-shadow:0 0 8px red;">
+  <!-- Retro marquee banner -->
+  <marquee behavior="scroll" direction="left" scrollamount="6" class="rgb-text">
     💚🦅 Welcome to the Jett Vaughan Blog — Live from Denton, Texas! 🦅💚
   </marquee>
 
@@ -91,39 +101,48 @@
 
   <!-- Main content -->
   <div class="container content-bg">
-    <div class="hero-unit">
-      <h1>Welcome to my blog!</h1>
-      <p>Created and coded by me! With help from Bootstrap 2.3.1.</p>
+    <!-- Home -->
+    <div id="home" class="hero-unit">
+      <h1 class="rgb-text">Welcome to my blog!</h1>
+      <p>Created and coded by me! With help from Bootstrap 2.3.1. </p>
     </div>
 
     <div class="row">
-      <div class="span8">
-        <h2>Recent Posts</h2>
+      <!-- Blog section -->
+      <div id="blog" class="span8">
+        <h2 class="rgb-text">Recent Posts</h2>
         <div class="well">
-          <h3>Blog post 1</h3>
+          <h3 class="rgb-text">Blog post 1</h3>
           <p>Bask in the glory of the cosmos and write about your adventures here!</p>
         </div>
         <div class="well">
-          <h3>✨ Another Blog Post</h3>
+          <h3 class="rgb-text">✨ Another Blog Post</h3>
           <p>Your thoughts, code, or anything else can shine here under the stars.</p>
         </div>
       </div>
 
-      <div class="span4">
-        <h3>About Me</h3>
-        <p class="about-me">
-          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola.  
-          It literally has 5 red lights and 1 Walmart.  
-          I was raised by my Grandparents on a private lake.  
-          After graduating from Mineola HS, I furthered my studies at Tyler Junior College,  
-          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR.  
+      <!-- About section -->
+      <div id="about" class="span4">
+        <h3 class="rgb-text">About Me</h3>
+        <p style="line-height:2;">
+          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. 
+          It literally has 5 red lights and 1 Walmart. 
+          I was raised by my Grandparents on a private lake. 
+          After graduating from Mineola HS, I furthered my studies at Tyler Junior College, 
+          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. 
           I plan to use this website as my Blog and my portfolio.
         </p>
       </div>
     </div>
+
+    <!-- Projects -->
+    <div id="projects" class="well">
+      <h2 class="rgb-text">Projects</h2>
+      <p>🚧 Coming soon: my coding, design, and creative projects!</p>
+    </div>
   </div>
 
-  <!-- Footer -->
+  <!-- Footer with contact info -->
   <footer class="container">
     <hr>
     <p>&copy; 2025 Jett Vaughan</p>
