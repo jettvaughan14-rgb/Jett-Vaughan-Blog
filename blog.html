@@ -5,9 +5,46 @@
   <title>Blog - Jett Vaughan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet"> <!-- optional: move CSS here -->
+  <style>
+    body {
+      background-color: #076B1D;
+      background-image: url('STARS-BG.gif');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      font-family: "Comic Sans MS", "Trebuchet MS", cursive;
+      color: white;
+    }
+
+    @keyframes rgbText {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: magenta; }
+    }
+    #blog { animation: rgbText 4s infinite linear; text-shadow: 0 0 6px #000; }
+
+    .content-bg {
+      background: rgba(0,0,0,0.8);
+      border: 2px dashed #ff00cc;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    .navbar {
+      background: white !important;
+      border-bottom: 3px solid #076B1D;
+    }
+    .navbar .brand, .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+    }
+    .navbar .nav > li > a:hover { color: #ff00cc !important; }
+  </style>
 </head>
 <body>
+  <!-- Navbar -->
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
@@ -21,31 +58,13 @@
       </div>
     </div>
   </div>
-<div class="well">
-  <div class="video-container">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/EzNhaLUT520"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-  <h3 class="rgb-text">Hide ya Kids!</h3>
-  <p>Here’s how that wild day went down...</p>
-  <p>
-    [Your story text goes here: Share what inspired you to choose this video, your connection to it, how it made you feel, or why it's meaningful to your journey. Keep it concise and fun!]
-  </p>
-</div>
 
-  <div class="container content-bg">
-    <h1>🌌 Blog Posts</h1>
+  <div id="blog" class="container content-bg">
+    <h1>Blog Posts</h1>
     <div class="well">
-      <h3>🚀 Blog post 1</h3>
-      <p>Bask in the glory of the cosmos and write about your adventures here!</p>
-    </div>
-    <div class="well">
-      <h3>✨ Another Blog Post</h3>
-      <p>Your thoughts, code, or anything else can shine here under the stars.</p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
+      <h3>My First Blog Post</h3>
+      <p>This is where I share my story inspired by the video above. 🚀✨</p>
     </div>
   </div>
 </body>
