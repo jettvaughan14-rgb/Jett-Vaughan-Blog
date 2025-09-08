@@ -7,18 +7,32 @@
   <link href="bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      background-color: #076B1D; /* fallback if image fails */
+      background-color: #064d1a; /* green fallback */
       background-image: url('STARS-BG.gif');
-      background-repeat: repeat;       /* tile it */
-      background-position: top left;   /* start tiling at top left */
-      background-attachment: fixed;    /* stays put when scrolling */
+      background-repeat: repeat;
+      background-attachment: fixed;
       color: #00ffcc;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
       text-shadow: 0 0 5px #00ffff;
     }
 
+    .navbar {
+      background: white !important;
+      border-bottom: 3px solid #064d1a;
+    }
+    .navbar .brand,
+    .navbar .nav > li > a {
+      color: #064d1a !important;
+      font-weight: bold;
+      text-shadow: none;
+    }
+    .navbar .nav > .active > a {
+      background: #00ffcc !important;
+      color: black !important;
+    }
+
     .content-bg {
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       border: 2px dashed #ff00cc;
       border-radius: 10px;
       padding: 2rem;
@@ -27,7 +41,7 @@
     }
 
     .about-me {
-      line-height: 2; /* double spacing */
+      line-height: 2; /* double spaced */
     }
 
     marquee {
@@ -44,7 +58,6 @@
       color: #ff99ff;
       text-shadow: 0 0 6px #ff00ff;
     }
-
     footer a {
       color: #ffcc00;
       text-decoration: none;
@@ -56,21 +69,21 @@
   </style>
 </head>
 <body>
-  <!-- Retro marquee banner -->
+  <!-- Marquee -->
   <marquee behavior="scroll" direction="left" scrollamount="6" style="color:yellow; font-size:1.5em; text-shadow:0 0 8px red;">
-    💚🦅Welcome to the Jett Vaughan Blog — Live from Denton ,Texas!🦅💚
+    💚🦅 Welcome to the Jett Vaughan Blog — Live from Denton, Texas! 🦅💚
   </marquee>
 
   <!-- Navbar -->
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#home">Jett Vaughan Blog</a>
+        <a class="brand" href="index.html">Jett Vaughan Blog</a>
         <ul class="nav">
-          <li class="active"><a href="#home">Home</a></li>
-          <li><a <li><a href="blog.html">Blog</a></li>
-          <li><a <div id="navbar"></div>
-          <li><a href="#about">About</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
     </div>
@@ -78,15 +91,13 @@
 
   <!-- Main content -->
   <div class="container content-bg">
-    <!-- Home -->
-    <div id="home" class="hero-unit">
+    <div class="hero-unit">
       <h1>Welcome to my blog!</h1>
-      <p>Created and coded by me! With help from Bootstrap 2.3.1. </p>
+      <p>Created and coded by me! With help from Bootstrap 2.3.1.</p>
     </div>
 
     <div class="row">
-      <!-- Blog -->
-      <div id="blog" class="span8">
+      <div class="span8">
         <h2>Recent Posts</h2>
         <div class="well">
           <h3>Blog post 1</h3>
@@ -98,28 +109,21 @@
         </div>
       </div>
 
-      <!-- About -->
-      <div id="about" class="span4">
+      <div class="span4">
         <h3>About Me</h3>
         <p class="about-me">
-          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. 
-          It literally has 5 red lights and 1 Walmart. 
-          I was raised by my Grandparents on a private lake. 
-          After graduating from Mineola HS, I furthered my studies at Tyler Junior College, 
-          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. 
+          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola.  
+          It literally has 5 red lights and 1 Walmart.  
+          I was raised by my Grandparents on a private lake.  
+          After graduating from Mineola HS, I furthered my studies at Tyler Junior College,  
+          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR.  
           I plan to use this website as my Blog and my portfolio.
         </p>
       </div>
     </div>
-
-    <!-- Projects -->
-    <div id="projects" class="well">
-      <h2>Projects</h2>
-      <p>🚧 Coming soon: my coding, design, and creative projects!</p>
-    </div>
   </div>
 
-  <!-- Footer with contact info -->
+  <!-- Footer -->
   <footer class="container">
     <hr>
     <p>&copy; 2025 Jett Vaughan</p>
