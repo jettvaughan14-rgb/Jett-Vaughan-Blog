@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<ul class="nav">
-  <li class="active"><a href="index.html">Home</a></li>
-  <li><a href="blog.html">Blog</a></li>
-  <li><a href="projects.html">Projects</a></li>
-  <li><a href="about.html">About</a></li>
-</ul>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -13,42 +6,87 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
   <style>
- body {
-  background-color: #000; /* fallback if image fails */
-  background-image: url('STARS-BG.gif');
-  background-repeat: repeat;       /* tile it */
-  background-position: top left;   /* start tiling at top left */
-  background-attachment: fixed;    /* stays put when scrolling */
-  color: #00ffcc;
-  font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-  text-shadow: 0 0 5px #00ffff;
-}
+    body {
+      background-color: #000; /* fallback if image fails */
+      background-image: url('STARS-BG.gif');
+      background-repeat: repeat;       /* tile it */
+      background-position: top left;   /* start tiling at top left */
+      background-attachment: fixed;    /* stays put when scrolling */
+      color: #00ffcc;
+      font-family: "Comic Sans MS", "Trebuchet MS", cursive;
+      text-shadow: 0 0 5px #00ffff;
+    }
+
+    .content-bg {
+      background: rgba(0,0,0,0.8);
+      border: 2px dashed #ff00cc;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 0 24px #ff00cc;
+    }
+
+    .about-me {
+      line-height: 2; /* double spacing */
+    }
+
+    marquee {
+      background: rgba(0,0,0,0.8);
+      padding: 8px;
+      border: 2px dashed #ff00cc;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff00ff;
+    }
+
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #00ffcc;
+      text-shadow: 0 0 6px #00ffff;
+    }
   </style>
 </head>
 <body>
+  <!-- Retro marquee banner -->
   <marquee behavior="scroll" direction="left" scrollamount="6" style="color:yellow; font-size:1.5em; text-shadow:0 0 8px red;">
-  🚀 Welcome to the Jett Vaughan Blog — Live from the Galaxy! 🌌
-</marquee>
+    🚀 Welcome to the Jett Vaughan Blog — Live from the Galaxy! 🌌
+  </marquee>
+
+  <!-- Navbar -->
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="#">Jett Vaughan Blog</a>
+        <a class="brand" href="#home">Jett Vaughan Blog</a>
         <ul class="nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">About</a></li>
+          <li class="active"><a href="#home">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </div>
     </div>
   </div>
+
+  <!-- Main content -->
   <div class="container content-bg">
-    <div class="hero-unit">
+    <!-- Home -->
+    <div id="home" class="hero-unit">
       <h1>Welcome to my blog!</h1>
       <p>Created and coded by me! With help from Bootstrap 2.3.1. </p>
     </div>
+
     <div class="row">
-      <div class="span8">
+      <!-- Blog -->
+      <div id="blog" class="span8">
         <h2>Recent Posts</h2>
         <div class="well">
           <h3>Blog post 1</h3>
@@ -59,17 +97,37 @@
           <p>Your thoughts, code, or anything else can shine here under the stars.</p>
         </div>
       </div>
-      <div class="span4">
+
+      <!-- About -->
+      <div id="about" class="span4">
         <h3>About Me</h3>
-        <p>My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. It literally has 5 red lights and 1 Walmart. I was raised by my Grandparents on a private lake. After graduating from Mineola HS, I furthered my studies at Tyler Junior College, where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. I plan to use this website as my Blog and my portfolio.</p>
+        <p class="about-me">
+          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. 
+          It literally has 5 red lights and 1 Walmart. 
+          I was raised by my Grandparents on a private lake. 
+          After graduating from Mineola HS, I furthered my studies at Tyler Junior College, 
+          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. 
+          I plan to use this website as my Blog and my portfolio.
+        </p>
       </div>
     </div>
+
+    <!-- Projects -->
+    <div id="projects" class="well">
+      <h2>Projects</h2>
+      <p>🚧 Coming soon: my coding, design, and creative projects!</p>
+    </div>
   </div>
+
+  <!-- Footer with contact info -->
   <footer class="container">
     <hr>
     <p>&copy; 2025 Jett Vaughan</p>
+    <p>
+      📱 <a href="tel:2144706314">214-470-6314</a> | 
+      📧 <a href="mailto:Jettvaughan14@gmail.com">Jettvaughan14@gmail.com</a> | 
+      🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
+    </p>
   </footer>
 </body>
 </html>
-214-470-6314       Jettvaughan14@gmail.com       Jettvaughan@my.unt.edu
-
