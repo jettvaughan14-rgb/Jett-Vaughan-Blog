@@ -5,6 +5,7 @@
   <title>Blog - Jett Vaughan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       background-color: #076B1D;
@@ -13,9 +14,36 @@
       background-attachment: fixed;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
       color: white;
-      padding-top: 70px; /* Prevent navbar overlap */
+      margin: 0;
+      padding: 0;
     }
 
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 4px solid #00ffcc;
+    }
+    .navbar .brand, 
+    .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+      text-shadow: none;
+    }
+    .navbar .nav > li > a:hover {
+      color: #ff00ff !important;
+    }
+
+    /* Content */
+    .content-bg {
+      background: rgba(0,0,0,0.8);
+      border: 2px dashed #ff00cc;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 0 24px #ff00cc;
+    }
+
+    /* RGB text */
     @keyframes rgbText {
       0%   { color: red; }
       25%  { color: orange; }
@@ -23,28 +51,26 @@
       75%  { color: cyan; }
       100% { color: magenta; }
     }
-    #blog { 
-      animation: rgbText 4s infinite linear; 
-      text-shadow: 0 0 6px #000; 
+    h1, h2, h3 {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
     }
 
-    .content-bg {
-      background: rgba(0,0,0,0.8);
-      border: 2px dashed #ff00cc;
-      border-radius: 10px;
-      padding: 2rem;
-      margin-top: 3rem;
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff00ff;
     }
-
-    .navbar {
-      background: white !important;
-      border-bottom: 3px solid #076B1D;
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
     }
-    .navbar .brand, .navbar .nav > li > a {
-      color: #076B1D !important;
-      font-weight: bold;
+    footer a:hover {
+      color: #00ffcc;
+      text-shadow: 0 0 6px #00ffff;
     }
-    .navbar .nav > li > a:hover { color: #ff00cc !important; }
   </style>
 </head>
 <body>
@@ -58,13 +84,42 @@
           <li class="active"><a href="blog.html">Blog</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="guestbook.html">Guestbook</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div id="blog" class="container content-bg">
+  <!-- Blog content -->
+  <div class="container content-bg">
     <h1>Blog Posts</h1>
+
+    <!-- Blog Post 1 -->
     <div class="well">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
-      <h3>Hid
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
+      <h2>Hide Ya Kids — Not so serious approach to a very serious story</h2>
+      <p>
+        I don’t think this topic is funny whatsoever. What makes this story comical is the tone of his voice while describing 
+        <em>“Hide ya kids, hide ya wives, and hide ya husband.”</em>
+      </p>
+      <p>
+        I feel like the news station chose to focus on Antoine because of the shock factor. Sadly, the majority of media nowadays focus on what will get the views. Honestly, in my eyes I don’t think this story broke the SPJ’s code of ethics. 
+      </p>
+      <p>
+        Although it does minimize harm, it seems as if it was an unrehearsed and honest interview, delivered by a primary source.  
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container">
+    <hr>
+    <p>&copy; 2025 Jett Vaughan</p>
+    <p>
+      📱 <a href="tel:2144706314">214-470-6314</a> | 
+      📧 <a href="mailto:Jettvaughan14@gmail.com">Jettvaughan14@gmail.com</a> | 
+      🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
+    </p>
+  </footer>
+</body>
+</html>
