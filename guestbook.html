@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guestbook - Jett Vaughan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #076B1D;
+      background-image: url('STARS-BG.gif');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: "Comic Sans MS", "Trebuchet MS", cursive;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 4px solid #00ffcc;
+    }
+    .navbar .brand, 
+    .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+      text-shadow: none;
+    }
+    .navbar .nav > li > a:hover {
+      color: #ff00ff !important;
+    }
+
+    /* Content */
+    .content-bg {
+      background: rgba(0, 0, 0, 0.8);
+      border: 2px dashed #ff00cc;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 0 24px #ff00cc;
+    }
+
+    /* RGB headings */
+    @keyframes rgbText {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: magenta; }
+    }
+    h1, h2 {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
+    }
+
+    /* Form styling */
+    .guestbook-form label {
+      font-weight: bold;
+      color: yellow;
+      text-shadow: 0 0 6px red;
+    }
+    .guestbook-form input, 
+    .guestbook-form textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 10px;
+      border: 2px dashed #00ffcc;
+      border-radius: 8px;
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+    }
+    .guestbook-form input:focus, 
+    .guestbook-form textarea:focus {
+      outline: none;
+      border-color: #ff00ff;
+      box-shadow: 0 0 12px #ff00ff;
+    }
+    .guestbook-form button {
+      background: #00ffcc;
+      color: #076B1D;
+      font-weight: bold;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffff;
+      cursor: pointer;
+    }
+    .guestbook-form button:hover {
+      background: #ff00ff;
+      color: white;
+      box-shadow: 0 0 14px #ff00ff;
+    }
+
+    /* Wall of messages */
+    #messages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .entry {
+      background: rgba(255,255,255,0.05);
+      border: 2px dashed #ffcc00;
+      border-radius: 10px;
+      padding: 1rem;
+      color: #ffccff;
+      text-shadow: 0 0 6px #000;
+      box-shadow: 0 0 12px #ff00cc;
+    }
+    .entry strong {
+      color: #00ffcc;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 1rem;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff00ff;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #00ffcc;
+      text-shadow: 0 0 6px #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="index.html">Jett Vaughan Blog</a>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Guestbook content -->
+  <div class="container content-bg">
+    <h1>Guestbook</h1>
+    <p>✨ Leave your mark on the stars! Share a message below ✨</p>
+
+    <!-- Form -->
+    <form class="guestbook-form" id="guestbookForm">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" required placeholder="Enter your name">
+
+      <label for="message">Message:</label>
+      <textarea id="message" rows="4" required placeholder="Write something cool..."></textarea>
+
+      <button type="submit">🚀 Submit</button>
+    </form>
+
+    <hr>
+
+    <!-- Wall of Messages -->
+    <h2>Guestbook Wall</h2>
+    <div id="messages"></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container">
+    <hr>
+    <p>&copy; 2025 Jett Vaughan</p>
+    <p>
+      📱 <a href="tel:2144706314">214-470-6314</a> | 
+      📧 <a href="mailto:Jettvaughan14@gmail.com">Jettvaughan14@gmail.com</a> | 
+      🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
+    </p>
+  </footer>
+
+  <!-- Guestbook Script -->
+  <script>
+    const form = document.getElementById('guestbookForm');
+    const messagesDiv = document.getElementById('messages');
+
+    // Load saved messages
+    let messages = JSON.parse(localStorage.getItem('guestbookMessages')) || [];
+
+    function renderMessages() {
+      messagesDiv.innerHTML = '';
+      messages.forEach(msg => {
+        const div = document.createElement('div');
+        div.classList.add('entry');
+        div.innerHTML = `<strong>${msg.name}:</strong><br>${msg.text}`;
+        messagesDiv.appendChild(div);
+      });
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const text = document.getElementById('message').value.trim();
+      if(name && text) {
+        messages.unshift({ name, text });
+        localStorage.setItem('guestbookMessages', JSON.stringify(messages));
+        renderMessages();
+        form.reset();
+      }
+    });
+
+    renderMessages();
+  </script>
+</body>
+</html>
+<style>
+  /* ... existing CSS above ... */
+
+  /* Wall of messages */
+  #messages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .entry {
+    background: rgba(255,255,255,0.08);
+    border: 2px dashed #ffcc00;
+    border-radius: 10px;
+    padding: 1rem;
+    color: #ffccff;
+    text-shadow: 0 0 6px #000;
+    box-shadow: 0 0 12px #ff00cc;
+    transform: rotate(var(--tilt));
+    transition: transform 0.3s ease;
+  }
+  .entry:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 20px #00ffff;
+  }
+  .entry strong {
+    color: #00ffcc;
+  }
+</style>
