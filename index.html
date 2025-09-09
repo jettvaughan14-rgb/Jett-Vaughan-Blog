@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Blog - Jett Vaughan</title>
+  <title>Home - Jett Vaughan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
 
@@ -12,10 +12,23 @@
       background-image: url('STARS-BG.gif');
       background-repeat: repeat;
       background-attachment: fixed;
+      background-size: cover;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
       color: white;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Floating stars canvas */
+    #star-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
     }
 
     /* Navbar */
@@ -27,23 +40,24 @@
     .navbar .nav > li > a {
       color: #076B1D !important;
       font-weight: bold;
-      text-shadow: none;
     }
     .navbar .nav > li > a:hover {
       color: #ff00ff !important;
     }
 
-    /* Content */
+    /* Content container */
     .content-bg {
       background: rgba(0,0,0,0.8);
       border: 2px dashed #ff00cc;
       border-radius: 10px;
-      padding: 2rem;
-      margin-top: 3rem;
+      padding: 3rem;
+      margin-top: 4rem;
+      margin-bottom: 3rem;
       box-shadow: 0 0 24px #ff00cc;
+      text-align: center;
     }
 
-    /* RGB text */
+    /* RGB titles */
     @keyframes rgbText {
       0%   { color: red; }
       25%  { color: orange; }
@@ -51,30 +65,15 @@
       75%  { color: cyan; }
       100% { color: magenta; }
     }
-    h1, h2, h3 {
+    h1, h2 {
       animation: rgbText 4s infinite linear;
       text-shadow: 0 0 6px #000;
-    }
-
-    /* Marquee banner */
-    marquee {
-      background: rgba(0,0,0,0.8);
-      padding: 8px;
-      border-top: 2px dashed #ff00cc;
-      border-bottom: 2px dashed #ff00cc;
-      font-weight: bold;
-      letter-spacing: 2px;
-      color: yellow;
-      font-size: 1.2em;
-      text-shadow: 0 0 8px red;
-      display: block;
-      margin-top: 2rem;
     }
 
     /* Footer */
     footer {
       text-align: center;
-      margin-top: 1rem;
+      margin-top: 2rem;
       color: #ff99ff;
       text-shadow: 0 0 6px #ff00ff;
     }
@@ -89,14 +88,17 @@
   </style>
 </head>
 <body>
+  <!-- Floating Stars -->
+  <canvas id="star-canvas"></canvas>
+
   <!-- Navbar -->
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="index.html">Jett Vaughan Blog</a>
+        <a class="brand" href="index.html">Jett Vaughan</a>
         <ul class="nav">
-          <li><a href="index.html">Home</a></li>
-          <li class="active"><a href="blog.html">Blog</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="guestbook.html">Guestbook</a></li>
@@ -105,31 +107,19 @@
     </div>
   </div>
 
-  <!-- Blog content -->
+  <!-- Welcome Content -->
   <div class="container content-bg">
-    <h1>Blog Posts</h1>
-
-    <!-- Blog Post 1 -->
-    <div class="well">
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
-      <h2>Hide Ya Kids — Not so serious approach to a very serious story</h2>
-      <p>
-        I don’t think this topic is funny whatsoever. What makes this story comical is the tone of his voice while describing 
-        <em>“Hide ya kids, hide ya wives, and hide ya husband.”</em>
-      </p>
-      <p>
-        I feel like the news station chose to focus on Antoine because of the shock factor. Sadly, the majority of media nowadays focus on what will get the views. Honestly, in my eyes I don’t think this story broke the SPJ’s code of ethics. 
-      </p>
-      <p>
-        Although it does minimize harm, it seems as if it was an unrehearsed and honest interview, delivered by a primary source.  
-      </p>
-    </div>
+    <h1>🌌 Welcome to My Universe 🌌</h1>
+    <p>
+      Hi, I’m <strong>Jett Vaughan</strong>.  
+      This is my personal corner of the internet where I share my thoughts, projects, and creative work.
+    </p>
+    <h2>✨ Explore ✨</h2>
+    <p><a href="blog.html" style="color:#00ffcc; font-weight:bold; text-decoration:none;">📖 Blog</a> — My posts & reflections</p>
+    <p><a href="projects.html" style="color:#ffcc00; font-weight:bold; text-decoration:none;">💻 Projects</a> — Cool stuff I’m building</p>
+    <p><a href="about.html" style="color:#ff66ff; font-weight:bold; text-decoration:none;">👤 About</a> — Learn more about me</p>
+    <p><a href="guestbook.html" style="color:#00ffff; font-weight:bold; text-decoration:none;">📝 Guestbook</a> — Leave me a message</p>
   </div>
-
-  <!-- Banner at bottom -->
-  <marquee behavior="scroll" direction="left" scrollamount="6">
-    💚🦅LIVE FROM DENTON TX---JETT VAUGHAN BLOG---STAY TUNED FOR MORE!!🦅💚
-  </marquee>
 
   <!-- Footer -->
   <footer class="container">
@@ -141,5 +131,62 @@
       🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
     </p>
   </footer>
+
+  <!-- Floating Stars Script -->
+  <script>
+    const canvas = document.getElementById("star-canvas");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createStars(count) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2,
+          speed: Math.random() * 0.5 + 0.2,
+          opacity: Math.random()
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(star => {
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function updateStars() {
+      stars.forEach(star => {
+        star.y += star.speed;
+        star.opacity = 0.5 + Math.sin(Date.now() / 500 + star.x) * 0.5; // twinkle
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function animateStars() {
+      drawStars();
+      updateStars();
+      requestAnimationFrame(animateStars);
+    }
+
+    createStars(150);
+    animateStars();
+  </script>
 </body>
 </html>
