@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Guestbook - Jett Vaughan</title>
+  <title>Jett Vaughan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
 
@@ -11,12 +11,11 @@
       background-color: #076B1D;
       background-image: url('STARS-BG.gif');
       background-repeat: repeat;
-      background-position: top left;
       background-attachment: fixed;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
       margin: 0;
       padding: 0;
-      color: white;
+      overflow-x: hidden;
     }
 
     /* Navbar */
@@ -42,29 +41,52 @@
       padding: 2rem;
       margin-top: 3rem;
       box-shadow: 0 0 24px #ff00cc;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Guestbook form */
-    #guestbook input, #guestbook textarea {
-      width: 100%;
+    /* RGB text animation */
+    @keyframes rgbText {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: magenta; }
+    }
+    #blog, #projects, #about {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
+    }
+
+    /* Falling stars */
+    .star {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px #0ff;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Marquee */
+    marquee {
+      background: rgba(0,0,0,0.8);
       padding: 8px;
-      border: 2px solid #ff00cc;
-      border-radius: 5px;
-      background: black;
-      color: white;
-      margin-bottom: 10px;
-    }
-    #guestbook button {
-      background: #076B1D;
-      color: white;
-      border: 2px solid #00ffcc;
-      padding: 8px 16px;
+      border: 2px dashed #ff00cc;
       font-weight: bold;
-      cursor: pointer;
-    }
-    #guestbook button:hover {
-      background: #00ffcc;
-      color: black;
+      letter-spacing: 2px;
+      color: yellow;
+      font-size: 1.5em;
+      text-shadow: 0 0 8px red;
     }
 
     /* Footer */
@@ -73,6 +95,8 @@
       margin-top: 2rem;
       color: #ff99ff;
       text-shadow: 0 0 6px #ff00ff;
+      z-index: 2;
+      position: relative;
     }
     footer a {
       color: #ffcc00;
@@ -85,34 +109,72 @@
   </style>
 </head>
 <body>
+  <!-- Marquee -->
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    💚🦅 Welcome to the Jett Vaughan Blog — Live from Denton, Texas! 🦅💚
+  </marquee>
+
   <!-- Navbar -->
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
         <a class="brand" href="index.html">Jett Vaughan Blog</a>
         <ul class="nav">
-          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="projects.html">Projects</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="active"><a href="guestbook.html">Guestbook</a></li>
+          <li><a href="guestbook.html">Guestbook</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- Guestbook content -->
+  <!-- Main content -->
   <div class="container content-bg">
-    <h1>Guestbook</h1>
-    <p>🌟 Leave me a message and sign my guestbook!</p>
+    <!-- Home -->
+    <div id="home" class="hero-unit">
+      <h1>Welcome to my blog!</h1>
+      <p>Created and coded by me! With help from Bootstrap 2.3.1.</p>
+    </div>
 
-    <form id="guestbook" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <label>Name:</label><br>
-      <input type="text" name="name" required><br>
-      <label>Message:</label><br>
-      <textarea name="message" rows="4" required></textarea><br>
-      <button type="submit">Sign Guestbook</button>
-    </form>
+    <div class="row">
+      <!-- Blog preview -->
+      <div id="blog" class="span8">
+        <h2>Recent Post</h2>
+        <div class="well">
+          <iframe width="100%" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
+          <h3>Hide Ya Kids — Not so serious approach to a very serious story</h3>
+          <p>
+            I don’t think this topic is funny whatsoever. What makes this story comical is the tone of his voice while describing 
+            <em>“Hide ya kids, hide ya wives, and hide ya husband.”</em>  
+          </p>
+          <p>
+            I feel like the news station chose to focus on Antoine because of the shock factor. Sadly, most media nowadays focus on what will get views. Honestly, in my eyes I don’t think this story broke the SPJ’s code of ethics. Although it does minimize harm, it seems like it was an unrehearsed and honest interview, delivered by a primary source.  
+          </p>
+          <p><a href="blog.html">Read more on the Blog page →</a></p>
+        </div>
+      </div>
+
+      <!-- About preview -->
+      <div id="about" class="span4">
+        <h3>About Me</h3>
+        <p>
+          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. 
+          It literally has 5 red lights and 1 Walmart. 
+          I was raised by my Grandparents on a private lake. 
+          After graduating from Mineola HS, I furthered my studies at Tyler Junior College, 
+          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. 
+          I plan to use this website as my Blog and my portfolio.
+        </p>
+      </div>
+    </div>
+
+    <!-- Projects preview -->
+    <div id="projects" class="well">
+      <h2>Projects</h2>
+      <p>🚧 Coming soon: my coding, design, and creative projects!</p>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -125,5 +187,18 @@
       🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
     </p>
   </footer>
+
+  <!-- Falling Stars Script -->
+  <script>
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 5000);
+    }
+    setInterval(createStar, 200);
+  </script>
 </body>
 </html>
