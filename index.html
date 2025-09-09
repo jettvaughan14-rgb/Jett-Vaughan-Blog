@@ -5,29 +5,35 @@
   <title>Jett Vaughan Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
       background-color: #076B1D;
       background-image: url('STARS-BG.gif');
       background-repeat: repeat;
+      background-position: top left;
       background-attachment: fixed;
       font-family: "Comic Sans MS", "Trebuchet MS", cursive;
-      color: white;
+      margin: 0;
+      padding: 0;
     }
 
-    /* RGB Animation */
-    @keyframes rgbText {
-      0%   { color: red; }
-      25%  { color: orange; }
-      50%  { color: lime; }
-      75%  { color: cyan; }
-      100% { color: magenta; }
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 4px solid #00ffcc;
     }
-    .rgb-text, #blog, #projects, #about {
-      animation: rgbText 4s infinite linear;
-      text-shadow: 0 0 6px #000;
+    .navbar .brand, 
+    .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+      text-shadow: none;
+    }
+    .navbar .nav > li > a:hover {
+      color: #ff00ff !important;
     }
 
+    /* Content */
     .content-bg {
       background: rgba(0,0,0,0.8);
       border: 2px dashed #ff00cc;
@@ -37,30 +43,56 @@
       box-shadow: 0 0 24px #ff00cc;
     }
 
-    .navbar {
-      background: white !important;
-      border-bottom: 3px solid #076B1D;
+    /* RGB text animation */
+    @keyframes rgbText {
+      0%   { color: red; }
+      25%  { color: orange; }
+      50%  { color: lime; }
+      75%  { color: cyan; }
+      100% { color: magenta; }
     }
-    .navbar .brand, .navbar .nav > li > a {
-      color: #076B1D !important;
-      font-weight: bold;
-      text-shadow: none !important;
-    }
-    .navbar .nav > li > a:hover {
-      color: #ff00cc !important;
+    #blog, #projects, #about {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
     }
 
+    /* Falling stars */
+    .star {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px #0ff;
+      animation: fall linear infinite;
+      z-index: 0;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Marquee */
     marquee {
       background: rgba(0,0,0,0.8);
       padding: 8px;
+      border: 2px dashed #ff00cc;
       font-weight: bold;
+      letter-spacing: 2px;
+      color: yellow;
       font-size: 1.5em;
+      text-shadow: 0 0 8px red;
     }
 
+    /* Footer */
     footer {
       text-align: center;
       margin-top: 2rem;
-      color: #fff;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff00ff;
     }
     footer a {
       color: #ffcc00;
@@ -68,32 +100,108 @@
     }
     footer a:hover {
       color: #00ffcc;
+      text-shadow: 0 0 6px #00ffff;
+    }
+
+    /* Guestbook form */
+    #guestbook input, #guestbook textarea {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid #ff00cc;
+      border-radius: 5px;
+      background: black;
+      color: white;
+      margin-bottom: 10px;
+    }
+    #guestbook button {
+      background: #076B1D;
+      color: white;
+      border: 2px solid #00ffcc;
+      padding: 8px 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #guestbook button:hover {
+      background: #00ffcc;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <marquee class="rgb-text">💚🦅 Welcome to the Jett Vaughan Blog — Live from Denton, Texas! 🦅💚</marquee>
+  <!-- Marquee -->
+  <marquee behavior="scroll" direction="left" scrollamount="6">
+    💚🦅 Welcome to the Jett Vaughan Blog — Live from Denton, Texas! 🦅💚
+  </marquee>
 
   <!-- Navbar -->
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
-        <a class="brand" href="index.html">Jett Vaughan Blog</a>
+        <a class="brand" href="#home">Jett Vaughan Blog</a>
         <ul class="nav">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
+          <li class="active"><a href="#home">Home</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#guestbook">Guestbook</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- Main -->
+  <!-- Main content -->
   <div class="container content-bg">
-    <div class="hero-unit">
-      <h1 class="rgb-text">Welcome to my blog!</h1>
+    <!-- Home -->
+    <div id="home" class="hero-unit">
+      <h1>Welcome to my blog!</h1>
       <p>Created and coded by me! With help from Bootstrap 2.3.1.</p>
+    </div>
+
+    <div class="row">
+      <!-- Blog -->
+      <div id="blog" class="span8">
+        <h2>Recent Posts</h2>
+        <div class="well">
+          <h3>Blog post 1</h3>
+          <p>Bask in the glory of the cosmos and write about your adventures here!</p>
+        </div>
+        <div class="well">
+          <h3>✨ Another Blog Post</h3>
+          <p>Your thoughts, code, or anything else can shine here under the stars.</p>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div id="about" class="span4">
+        <h3>About Me</h3>
+        <p>
+          My name is Jett Paul Vaughan. I am from a small town in East Texas named Mineola. 
+          It literally has 5 red lights and 1 Walmart. 
+          I was raised by my Grandparents on a private lake. 
+          After graduating from Mineola HS, I furthered my studies at Tyler Junior College, 
+          where I played saxophone for 2 years while studying and obtaining my AA in Advertising/PR. 
+          I plan to use this website as my Blog and my portfolio.
+        </p>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div id="projects" class="well">
+      <h2>Projects</h2>
+      <p>🚧 Coming soon: my coding, design, and creative projects!</p>
+    </div>
+
+    <!-- Guestbook -->
+    <div id="guestbook" class="well">
+      <h2>Guestbook</h2>
+      <p>Sign my guestbook and leave me a message! 🌟</p>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br>
+        <label>Message:</label><br>
+        <textarea name="message" rows="4" required></textarea><br>
+        <button type="submit">Sign Guestbook</button>
+      </form>
     </div>
   </div>
 
@@ -107,5 +215,18 @@
       🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
     </p>
   </footer>
+
+  <!-- Falling Stars Script -->
+  <script>
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("star");
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (2 + Math.random() * 3) + "s";
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 5000);
+    }
+    setInterval(createStar, 200);
+  </script>
 </body>
 </html>
