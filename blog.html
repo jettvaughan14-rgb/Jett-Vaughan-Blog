@@ -1,105 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Blog - Jett Vaughan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jett Vaughan — Blog</title>
   <link href="bootstrap.min.css" rel="stylesheet">
+
   <style>
     body {
-      background-color: black;
+      background-color: #076B1D;
+      background-image: url('STARS-BG.gif');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      font-family: "Comic Sans MS", "Trebuchet MS", cursive;
       color: white;
-      font-family: 'Courier New', monospace;
-      text-align: center;
       margin: 0;
       padding: 0;
       overflow-x: hidden;
     }
 
-    h1 {
-      color: rgb(255, 0, 149);
-      font-size: 2.5em;
-      margin-top: 1.2em;
-    }
-
-    .post {
-      background-color: rgba(255, 255, 255, 0.07);
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(255, 0, 149, 0.3);
-      padding: 20px;
-      margin: 2em auto;
-      max-width: 800px;
-      text-align: left;
-      line-height: 1.6;
-    }
-
-    iframe {
-      display: block;
-      margin: 1em auto;
-      width: 100%;
-      max-width: 560px;
-      border-radius: 10px;
-      border: none;
-    }
-
-    footer {
-      margin-top: 3em;
-      padding: 1em;
-      font-size: 0.9em;
-      color: rgb(180, 180, 180);
-    }
-
-    /* Floating stars */
-    .stars {
+    /* Floating stars canvas */
+    #star-canvas {
       position: fixed;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: 0;
-      background: url('stars.gif') repeat;
+      width: 100%;
+      height: 100%;
       z-index: -1;
-      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: white;
+      border-bottom: 4px solid #00ffcc;
+    }
+    .navbar .brand, 
+    .navbar .nav > li > a {
+      color: #076B1D !important;
+      font-weight: bold;
+    }
+    .navbar .nav > li > a:hover {
+      color: #ff00ff !important;
+    }
+
+    /* Blog container */
+    .content-bg {
+      background: rgba(0,0,0,0.8);
+      border: 2px dashed #ff00cc;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 24px #ff00cc;
+    }
+
+    /* Auto-feed layout */
+    .feed {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    /* RGB titles */
+    @keyframes rgbText {
+      0% { color: red; }
+      25% { color: orange; }
+      50% { color: lime; }
+      75% { color: cyan; }
+      100% { color: magenta; }
+    }
+    h1, h2, h3 {
+      animation: rgbText 4s infinite linear;
+      text-shadow: 0 0 6px #000;
+    }
+
+    /* Post styling */
+    .post {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #ff00cc;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px #ff00cc;
+      margin-bottom: 2rem;
+    }
+    .post iframe {
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      color: #ff99ff;
+      text-shadow: 0 0 6px #ff00ff;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #00ffcc;
+      text-shadow: 0 0 6px #00ffff;
     }
   </style>
 </head>
 
 <body>
-  <div class="stars"></div>
-  <h1>Jett Vaughan’s Blog</h1>
+  <!-- Floating Stars -->
+  <canvas id="star-canvas"></canvas>
 
-  <!-- Blog Post 1 -->
-  <div class="post">
-    <h2>“Hide Ya Kids, Hide Ya Wife” — Media Ethics Reflection</h2>
+  <!-- Navbar -->
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="index.html">Jett Vaughan</a>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="blog.html">Blog</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="guestbook.html">Guestbook</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Feed -->
+  <div class="container content-bg">
+    <h1>My Blog Feed 🌌</h1>
+    <div class="feed">
+
+      <!-- Blog Post 1 -->
+      <div class="post">
+        <iframe title="Hide Ya Kids video" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" frameborder="0" allowfullscreen></iframe>
+        <h2>Hide Ya Kids — Not so serious approach to a very serious story</h2>
+        <p>
+          I don’t think this topic is funny whatsoever. What makes this story come across as comical is the tone of Antoine’s voice when he says, “Hide ya kids, hide ya wives, and hide ya husband.” The way he delivered that line caught everyone off guard, and it quickly turned into a viral moment. People started repeating it, turning it into memes and remixes, but in reality, the situation he was describing was very serious. I think that’s what makes this story so complicated — people laughed at the delivery, not the message or the fear behind it.
+        </p>
+        <p>
+          I honestly feel like the news station chose to focus on Antoine because of the shock factor. The media often gravitates toward whatever will pull in the most views, and Antoine’s emotional, animated reaction did exactly that. They knew it would get people talking, sharing, and tuning in. It’s sad, but that’s how a lot of stories are handled today. Rather than focusing on the actual crime or the safety of the community, the spotlight shifted to the interviewee because he stood out and brought attention to the broadcast.
+        </p>
+        <p>
+          Even though the coverage blew up online, I don’t think it violated the SPJ Code of Ethics. The interview didn’t seem staged or manipulated — it looked like an honest, unrehearsed reaction from someone who had just experienced something terrifying in his own neighborhood. The reporters didn’t appear to mock him or twist his words, they simply aired what he said. If anything, the public’s reaction afterward did more harm than the news station itself.
+        </p>
+        <p>
+          So overall, while the video became famous for comedic reasons, I think it reflects how modern audiences consume media, not an ethical failure by the journalists involved.
+        </p>
+      </div>
+
+      <!-- Blog Post 2 -->
+      <div class="post">
+        <iframe title="Feminism and Beauty TED Talk" height="315" src="https://www.youtube.com/embed/hg3umXU_qWc" frameborder="0" allowfullscreen></iframe>
+        <h2>Beyond the Surface: What Feminism and Beauty Really Mean</h2>
+        <p>
+          Both Chimamanda Ngozi Adichie’s “We Should All Be Feminists” and Cameron Russell’s “Looks Aren’t Everything: Believe Me, I’m a Model” make powerful points about how society defines people—especially women—and how those definitions hold us back. Adichie explains how girls are taught to make themselves smaller, to be ambitious but not too ambitious, to be likable but never assertive. We grow up hearing mixed messages about what it means to be “enough.” Her message is simple: feminism isn’t about anger or superiority—it’s about fairness. It’s about freeing both men and women from the narrow boxes society places them in.
+        </p>
+        <p>
+          Cameron Russell takes that same honesty and applies it to beauty and privilege. She admits she “won the genetic lottery,” yet points out how looks are a form of currency that come with both benefits and pressure. She exposes how the modeling industry sells an illusion—perfect lighting, editing, and angles—and how people mistake that for real confidence. Russell’s talk reminds us that appearance doesn’t equal worth, and beauty can easily become another trap built on unrealistic expectations.
+        </p>
+        <p>
+          What connects both talks is the idea that image and identity are constructed. Adichie calls out gender roles that limit our potential, while Russell reveals the false perfection that media sells. Both challenge us to look deeper—to value honesty, intelligence, and individuality over surface-level approval.
+        </p>
+        <p>
+          For me, these talks go hand in hand. They remind us that confidence isn’t about fitting the mold—it’s about breaking it. Feminism and authenticity belong together because they both fight the same thing: the need to perform for acceptance. When we stop trying to meet society’s idea of who we should be, we finally make room to become who we really are.
+        </p>
+      </div>
+
+      <!-- Blog Post 3 (placeholder for next post) -->
+      <div class="post">
+        <h2>Coming Soon...</h2>
+        <p>New thoughts and reflections will be added here soon!</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container">
+    <hr>
+    <p>&copy; 2025 Jett Vaughan</p>
     <p>
-      I don’t think this topic is funny whatsoever. What makes this story comical is the tone of his voice while describing “Hide ya kids, hide ya wives, and hide ya husband.” 
-      I feel like the news station chose to focus on Antoine because of the shock factor. Sadly, the majority of media nowadays focuses on what will get the views. 
-      Honestly, in my eyes I don’t think this story broke the SPJ’s Code of Ethics. Although it does minimize harm, it seems as if it was an unrehearsed and honest interview, delivered by a primary source.
+      📱 <a href="tel:2144706314">214-470-6314</a> | 
+      📧 <a href="mailto:Jettvaughan14@gmail.com">Jettvaughan14@gmail.com</a> | 
+      🎓 <a href="mailto:Jettvaughan@my.unt.edu">Jettvaughan@my.unt.edu</a>
     </p>
-    <iframe title="Hide Ya Kids video" width="560" height="315" src="https://www.youtube.com/embed/EzNhaLUT520" allowfullscreen></iframe>
-  </div>
-
-  <!-- Blog Post 2 -->
-  <div class="post">
-    <h2>Beyond the Surface: What Feminism and Beauty Really Mean</h2>
-    <p>
-      Both Chimamanda Ngozi Adichie’s <em>“We Should All Be Feminists”</em> and Cameron Russell’s <em>“Looks Aren’t Everything: Believe Me, I’m a Model”</em> make powerful points about how society defines people—especially women—and how those definitions hold us back. 
-      Adichie explains how girls are taught to make themselves smaller, to be ambitious but not too ambitious, to be likable but never assertive. Her message is simple: feminism isn’t about anger or superiority—it’s about fairness. 
-      Cameron Russell takes that same honesty and applies it to beauty and privilege. She admits she “won the genetic lottery,” yet points out how looks are a form of currency that come with both benefits and pressure. She exposes how the modeling industry sells an illusion—perfect lighting, editing, and angles—and how people mistake that for real confidence. 
-      What connects both talks is the idea that image and identity are constructed. Adichie calls out gender roles that limit our potential, while Russell reveals the false perfection that media sells. Both challenge us to look deeper—to value honesty, intelligence, and individuality over surface-level approval. 
-      For me, these talks go hand in hand. They remind us that confidence isn’t about fitting the mold—it’s about breaking it. Feminism and authenticity belong together because they both fight the same thing: the need to perform for acceptance. When we stop trying to meet society’s idea of who we should be, we finally make room to become who we really are.
-    </p>
-    <iframe title="Cameron Russell TED Talk" height="315" src="https://www.youtube.com/embed/hg3umXU_qWc" allowfullscreen></iframe>
-    <iframe title="Chimamanda Ngozi Adichie TED Talk" height="315" src="https://www.youtube.com/embed/hg3umXU_qWc" allowfullscreen></iframe>
-  </div>
-
-  <!-- Blog Post 3 Placeholder -->
-  <div class="post">
-    <h2>Coming Soon...</h2>
-    <p>Check back later for my next post — new reflections and media analysis are on the way!</p>
-  </div>
-
-  <footer>
-    <p>© 2025 Jett Vaughan | Built with 💫 and late-night thoughts</p>
   </footer>
+
+  <!-- Floating Stars Script -->
+  <script>
+    const canvas = document.getElementById("star-canvas");
+    const ctx = canvas.getContext("2d");
+    let stars = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createStars(count) {
+      stars = [];
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2,
+          speed: Math.random() * 0.5 + 0.2
+        });
+      }
+    }
+
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "white";
+      stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+    }
+
+    function updateStars() {
+      stars.forEach(star => {
+        star.y += star.speed;
+        if (star.y > canvas.height) {
+          star.y = 0;
+          star.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function animateStars() {
+      drawStars();
+      updateStars();
+      requestAnimationFrame(animateStars);
+    }
+
+    createStars(150);
+    animateStars();
+  </script>
 </body>
 </html>
